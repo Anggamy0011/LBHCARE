@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json.schemastore.org/package",
+  "name": "keylawcare-frontend",
+  "version": "1.0.0",
+  "description": "KeyLawCare.id - Legal Consultation Platform",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "node serve.js"
+  },
+  "keywords": [
+    "legal",
+    "consultation",
+    "frontend",
+    "website"
+  ],
+  "author": "KeyLawCare.id Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

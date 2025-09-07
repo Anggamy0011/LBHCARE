@@ -310,10 +310,12 @@
     
     .services-title {
         font-size: 2.2rem;
+        margin-bottom: 20px;
     }
     
     .services-description {
         font-size: 1.1rem;
+        margin-bottom: 40px;
     }
     
     .services-grid {
@@ -332,28 +334,53 @@
     .service-card:nth-child(8) { grid-column: 2 / 3; }
     
     .service-card {
-        padding: 30px 20px;
+        padding: 25px 15px;
+        margin-bottom: 0;
     }
     
     .service-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 28px;
-        margin-bottom: 20px;
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
+        margin-bottom: 18px;
+        border-radius: 16px;
     }
     
     .service-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .service-description {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .service-cases {
+        font-size: 0.85rem;
+        margin-bottom: 18px;
+    }
+    
+    .service-btn {
+        padding: 12px 18px;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
+    .services {
+        padding: 60px 0;
+    }
+    
     .services-title {
         font-size: 1.8rem;
+        margin-bottom: 16px;
     }
     
     .services-description {
         font-size: 1rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
     }
     
     .services-grid {
@@ -367,17 +394,38 @@
     }
     
     .service-card {
-        padding: 25px 15px;
+        padding: 24px 20px;
+        margin: 0 auto;
+        max-width: 320px;
     }
     
     .service-icon {
         width: 60px;
         height: 60px;
         font-size: 24px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+    }
+    
+    .service-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .service-description {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    
+    .service-cases {
+        font-size: 0.8rem;
+        margin-bottom: 16px;
     }
     
     .service-btn {
         padding: 12px 20px;
-        font-size: 13px;
+        font-size: 0.8rem;
+        width: 100%;
     }
 }

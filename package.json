@@ -1,25 +1,13 @@
 {
-  "$schema": "http://json.schemastore.org/package",
-  "name": "keylawcare-frontend",
+  "name": "keylawcare",
   "version": "1.0.0",
-  "description": "KeyLawCare.id - Legal Consultation Platform",
-  "main": "serve.js",
+  "description": "Platform layanan hukum profesional",
   "scripts": {
-    "start": "node serve.js",
-    "dev": "node serve.js"
+    "start": "live-server --port=3000",
+    "dev": "live-server --port=8080",
+    "serve": "live-server"
   },
-  "keywords": [
-    "legal",
-    "consultation",
-    "frontend",
-    "website"
-  ],
-  "author": "KeyLawCare.id Team",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^5.1.0"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }

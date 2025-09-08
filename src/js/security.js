@@ -2,22 +2,35 @@
 
 class SecurityManager {
     constructor() {
-        this.initSecurity();
+        // Delay initialization to allow DOM and external resources to load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => this.initSecurity(), 1000);
+            });
+        } else {
+            setTimeout(() => this.initSecurity(), 1000);
+        }
     }
 
     initSecurity() {
-        this.setupCSP();
         this.setupInputValidation();
         this.setupXSSProtection();
         this.monitorSecurity();
+        this.setupPrivacyControls();
+        
+        // Optional CSP - can be enabled later when all resources are whitelisted
+        // this.setupCSP();
+        
+        console.log('🔒 Security Manager initialized successfully');
     }
 
-    // Content Security Policy
+    // Content Security Policy (disabled for now to avoid blocking external resources)
     setupCSP() {
         const meta = document.createElement('meta');
         meta.httpEquiv = 'Content-Security-Policy';
-        meta.content = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:";
+        meta.content = "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:";
         document.head.appendChild(meta);
+        console.log('🛡️ CSP activated');
     }
 
     // Input sanitization

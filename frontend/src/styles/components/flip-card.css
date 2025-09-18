@@ -1,0 +1,188 @@
+/* Flip Card Styles */
+.flip-card {
+    perspective: 1000px;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    min-height: 450px; /* Meningkatkan min-height agar teks muat */
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-front {
+    background-color: #fff;
+    overflow: hidden;
+    border: 1px solid #f7fafc;
+}
+
+.flip-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    padding: 25px; /* Mengurangi padding untuk memberi lebih banyak ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #f7fafc;
+}
+
+.lawyer-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lawyer-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.lawyer-name-overlay h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.lawyer-name-overlay p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Back Side Specific Styles */
+.flip-card-back .lawyer-header {
+    margin-bottom: 20px; /* Mengurangi margin */
+}
+
+.flip-card-back .lawyer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 8px;
+}
+
+.flip-card-back .lawyer-specialty {
+    color: #4a5568;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.flip-card-back .lawyer-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.flip-card-back .lawyer-rating i {
+    color: #f6ad55;
+    font-size: 16px;
+}
+
+.flip-card-back .rating-score {
+    font-weight: 700;
+    color: #1a365d;
+    font-size: 1.1rem;
+}
+
+.flip-card-back .rating-count {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.flip-card-back .lawyer-details {
+    margin-bottom: 20px; /* Mengurangi margin */
+    flex-grow: 1;
+}
+
+.flip-card-back .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px; /* Mengurangi margin */
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.flip-card-back .detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.flip-card-back .detail-item i {
+    color: #718096;
+    width: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.flip-card-back .lawyer-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: auto;
+}
+
+.flip-card-back .chat-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #3182ce, #63b3ed);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.flip-card-back .chat-btn:hover {
+    background: linear-gradient(135deg, #2c5aa0, #4299e1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(49, 130, 206, 0.3);
+}
+
+/* Add decorative top border to match other cards */
+.flip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #3182ce, #63b3ed);
+    z-index: 1;
+    border-radius: 20px 20px 0 0;
+}

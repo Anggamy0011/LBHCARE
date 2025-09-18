@@ -1,0 +1,13 @@
+{
+  "name": "lbh-care-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for LBH CARE website",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "dev": "live-server --port=8080",
+    "serve": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

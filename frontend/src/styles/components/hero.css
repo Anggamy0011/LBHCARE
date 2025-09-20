@@ -336,6 +336,17 @@
         min-height: calc(100vh - 60px);
     }
     
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-right {
+        justify-content: center;
+        align-items: center;
+    }
+    
     .hero-title {
         font-size: 2.8rem;
         margin-bottom: 28px;
@@ -407,6 +418,17 @@
 @media (max-width: 480px) {
     .hero {
         padding: 60px 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .hero-right {
+        justify-content: center;
+        align-items: center;
     }
     
     .hero-title {

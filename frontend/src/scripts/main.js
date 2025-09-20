@@ -107,44 +107,11 @@ function initializeMobileMenu() {
 
 // ===== BUTTON INTERACTIONS =====
 function initializeButtons() {
-    // Chat Lawyer Now button
-    const chatBtn = document.querySelector('.btn-primary');
-    if (chatBtn) {
-        chatBtn.addEventListener('click', function() {
-            // Implementasi chat functionality
-            console.log('Opening chat...');
-            alert('Fitur chat akan segera tersedia!');
-        });
-    }
+    // Chat Lawyer Now button - removed event listener (now uses href)
+    // Secondary button (Konsultasi Terpercaya) - removed event listener (now uses href)
+    // Header chat button - removed event listener (now uses href)
     
-    // Emergency button
-    const emergencyBtn = document.querySelector('.btn-emergency');
-    if (emergencyBtn) {
-        emergencyBtn.addEventListener('click', function() {
-            // Implementasi emergency call
-            console.log('Emergency call...');
-            alert('Menghubungi layanan darurat...');
-        });
-    }
-    
-    // Secondary button (Konsultasi Terpercaya)
-    const secondaryBtn = document.querySelector('.btn-secondary');
-    if (secondaryBtn) {
-        secondaryBtn.addEventListener('click', function() {
-            // Implementasi video atau info konsultasi
-            console.log('Show consultation info...');
-            alert('Informasi konsultasi terpercaya');
-        });
-    }
-    
-    // Header chat button
-    const headerChatBtn = document.querySelector('.btn-chat');
-    if (headerChatBtn) {
-        headerChatBtn.addEventListener('click', function() {
-            console.log('Header chat clicked...');
-            alert('Memulai chat dengan lawyer...');
-        });
-    }
+    console.log('Button interactions initialized - using href navigation');
 }
 
 // ===== ANIMATIONS =====

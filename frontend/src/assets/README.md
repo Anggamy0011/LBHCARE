@@ -1,40 +1,49 @@
-# KeyLawCare Assets Directory
+# LBH CARE Assets Directory
 
 ## 📁 Struktur Folder
 
 ```
 src/assets/
-├── icons/        # Icon SVG dan font icons
 ├── images/       # Gambar untuk konten website
-├── fonts/        # Font files lokal
 └── logo/         # Logo dan brand assets
 ```
+
+**Note**: Folder `icons/` dan `fonts/` telah dihapus karena kosong. Icons menggunakan Font Awesome CDN.
 
 ## 📌 Penggunaan
 
 ### Icons
 
-- Format: SVG, PNG (jika diperlukan)
-- Ukuran: 24x24px, 32x32px, 48x48px
-- Naming: `icon-[nama]-[ukuran].svg`
+- **Source**: Font Awesome 6.4.0 CDN
+- **URL**: `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2`
+- **Usage**: Class-based icons (fas, fa-solid)
+- **Note**: Tidak ada file icon lokal, menggunakan CDN
 
 ### Images
 
-- Format: WebP (primary), JPG/PNG (fallback)
-- Optimasi: Compressed untuk web
-- Naming: `[section]-[deskripsi]-[ukuran].webp`
+- **Format**: PNG (primary)
+- **Optimasi**: Compressed untuk web
+- **Naming**: `[nama-person].png` untuk foto profil
+- **Files**:
+  - `lbh hero.png` - Hero section image
+  - `Keyshan.png` - Foto Keyshan Eka Ludista
+  - `ferdinan.png` - Foto Ferdinand Silalahi
+  - `Bagas.png` - Foto Bagas Herlangga
+  - `daffa.png` - Foto Daffa Arya Saputra
+  - `Syahril.png` - Foto Syahril Akbar Gunawan
 
 ### Fonts
 
-- Format: WOFF2, WOFF (fallback)
-- Subset: Latin
-- Naming: `[font-name]-[weight].woff2`
+- **Source**: Font Awesome CDN (tidak ada file lokal)
+- **Format**: WOFF2 dari CDN
+- **Usage**: Icons dan UI elements
 
 ### Logo
 
-- Format: SVG (primary), PNG (fallback)
-- Ukuran: Multiple sizes for responsive
-- Naming: `logo-[tipe]-[ukuran].svg`
+- **Format**: PNG
+- **File**: `Lbh.png`
+- **Usage**: Header dan footer
+- **Note**: Digunakan 2x dalam aplikasi (header + footer)
 
 ## 🎨 Brand Colors
 
@@ -122,24 +131,30 @@ src/assets/
 ### Preload Critical Assets
 
 ```html
+<!-- Font Awesome CDN -->
 <link
   rel="preload"
-  href="/src/assets/fonts/inter-600.woff2"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
   as="font"
   type="font/woff2"
   crossorigin
 />
-<link rel="preload" href="/src/assets/logo/logo-main.svg" as="image" />
+
+<!-- Logo -->
+<link rel="preload" href="/src/assets/logo/Lbh.png" as="image" />
 ```
 
 ### Lazy Load Non-Critical Images
 
 ```html
+<!-- Hero Image -->
+<img src="src/assets/images/lbh hero.png" alt="LBH CARE Hero" loading="lazy" />
+
+<!-- Profile Images -->
 <img
-  src="placeholder.jpg"
-  data-src="/src/assets/images/content-image.webp"
+  src="src/assets/images/Keyshan.png"
+  alt="Keyshan Eka Ludista"
   loading="lazy"
-  alt="Description"
 />
 ```
 
@@ -147,10 +162,19 @@ src/assets/
 
 ### Sebelum Production
 
-- [ ] Compress semua images
-- [ ] Optimize semua SVGs
-- [ ] Generate font subsets
-- [ ] Test responsive images
-- [ ] Validate asset paths
-- [ ] Check asset security
-- [ ] Update documentation
+- [x] Compress semua images
+- [x] Optimize semua SVGs
+- [x] Generate font subsets (menggunakan CDN)
+- [x] Test responsive images
+- [x] Validate asset paths
+- [x] Check asset security
+- [x] Update documentation
+
+### Status Assets
+
+- [x] **Images**: 6 file PNG (semua digunakan)
+- [x] **Logo**: 1 file PNG (digunakan 2x)
+- [x] **Icons**: Font Awesome CDN (tidak ada file lokal)
+- [x] **Fonts**: Font Awesome CDN (tidak ada file lokal)
+- [x] **Folder Structure**: Bersih, tidak ada folder kosong
+- [x] **Documentation**: Terupdate sesuai struktur aktual

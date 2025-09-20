@@ -5,9 +5,13 @@
   "scripts": {
     "start": "live-server --port=3000",
     "dev": "live-server --port=8080",
-    "serve": "live-server"
+    "serve": "live-server",
+    "build:css": ".\\node_modules\\.bin\\tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "autoprefixer": "^10.4.21",
+    "live-server": "^1.2.2",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
   }
 }

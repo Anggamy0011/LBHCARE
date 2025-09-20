@@ -95,27 +95,6 @@
     align-items: center;
 }
 
-.btn-emergency {
-    background: transparent;
-    border: 2px solid #e2e8f0;
-    color: #4a5568;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-}
-
-.btn-emergency:hover {
-    background: #f7fafc;
-    border-color: #1a365d;
-    color: #1a365d;
-    transform: translateY(-1px);
-}
 
 .btn-chat {
     background: linear-gradient(135deg, #1a365d, #2c5282);
@@ -131,6 +110,7 @@
     gap: 10px;
     font-size: 14px;
     box-shadow: 0 4px 15px rgba(26, 54, 93, 0.3);
+    text-decoration: none;
 }
 
 .btn-chat:hover {
@@ -197,7 +177,6 @@
         gap: 12px;
     }
     
-    .btn-emergency,
     .btn-chat {
         padding: 10px 16px;
         font-size: 13px;
@@ -215,12 +194,10 @@
         font-size: 16px;
     }
     
-    .btn-emergency span,
     .btn-chat span {
         display: none;
     }
     
-    .btn-emergency,
     .btn-chat {
         padding: 10px;
         min-width: 44px;

@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeServices();
     initializeServiceAnimations();
     initializeLawyers();
+    initializeParalegal();
+    initializeParalegalAnimations();
     initializeConsultation();
     initializeKnowledgeCenter();
     initializeKnowledgeCenterAnimations();
@@ -341,12 +343,21 @@ function filterLawyers() {
         }
     });
     
-    // Show/hide "no results" message
+    // Show/hide "no results" message and center few results
     const visibleCards = document.querySelectorAll('.lawyer-card[style*="display: block"], .lawyer-card:not([style*="display: none"])');
+    const lawyersGrid = document.getElementById('lawyersGrid');
+    
     if (visibleCards.length === 0) {
         showNoResultsMessage();
+        lawyersGrid.classList.remove('few-results');
     } else {
         hideNoResultsMessage();
+        // Add few-results class if there are 1-2 visible cards
+        if (visibleCards.length <= 2) {
+            lawyersGrid.classList.add('few-results');
+        } else {
+            lawyersGrid.classList.remove('few-results');
+        }
     }
 }
 
@@ -427,6 +438,206 @@ function hideNoResultsMessage() {
     const existingMessage = document.querySelector('.no-results-message');
     if (existingMessage) {
         existingMessage.remove();
+    }
+}
+
+// ===== PARALEGAL FUNCTIONALITY =====
+function initializeParalegal() {
+    const searchInput = document.getElementById('paralegalSearch');
+    const specialistFilter = document.getElementById('paralegalSpecialistFilter');
+    const locationFilter = document.getElementById('paralegalLocationFilter');
+    const applyFilterBtn = document.getElementById('applyParalegalFilter');
+    const loadMoreBtn = document.getElementById('loadMoreParalegal');
+    const chatButtons = document.querySelectorAll('.paralegal .chat-btn');
+    
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(filterParalegal, 300));
+    }
+    
+    // Filter functionality
+    if (applyFilterBtn) {
+        applyFilterBtn.addEventListener('click', filterParalegal);
+    }
+    
+    // Load more functionality
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', loadMoreParalegal);
+    }
+    
+    // Chat button functionality
+    chatButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const paralegalCard = this.closest('.paralegal-card');
+            const paralegalName = paralegalCard.querySelector('.paralegal-name').textContent.trim();
+            startChatWithParalegal(paralegalName);
+        });
+    });
+    
+    console.log('Paralegal functionality initialized');
+}
+
+function filterParalegal() {
+    const searchTerm = document.getElementById('paralegalSearch').value.toLowerCase();
+    const selectedSpecialist = document.getElementById('paralegalSpecialistFilter').value;
+    const selectedLocation = document.getElementById('paralegalLocationFilter').value;
+    const paralegalCards = document.querySelectorAll('.paralegal-card');
+    
+    paralegalCards.forEach(card => {
+        const paralegalName = card.querySelector('.paralegal-name').textContent.toLowerCase();
+        const paralegalSpecialty = card.querySelector('.paralegal-specialty').textContent.toLowerCase();
+        const specialistData = card.getAttribute('data-specialist').toLowerCase();
+        const locationData = card.getAttribute('data-location').toLowerCase();
+        
+        const matchesSearch = paralegalName.includes(searchTerm) || paralegalSpecialty.includes(searchTerm);
+        const matchesSpecialist = !selectedSpecialist || specialistData.includes(selectedSpecialist);
+        const matchesLocation = !selectedLocation || locationData.includes(selectedLocation);
+        
+        if (matchesSearch && matchesSpecialist && matchesLocation) {
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show/hide "no results" message
+    const visibleCards = document.querySelectorAll('.paralegal-card[style*="display: block"], .paralegal-card:not([style*="display: none"])');
+    if (visibleCards.length === 0) {
+        showNoParalegalResultsMessage();
+    } else {
+        hideNoParalegalResultsMessage();
+    }
+}
+
+function loadMoreParalegal() {
+    // Simulate loading more paralegal
+    const loadMoreBtn = document.getElementById('loadMoreParalegal');
+    const originalText = loadMoreBtn.innerHTML;
+    
+    loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+    loadMoreBtn.disabled = true;
+    
+    setTimeout(() => {
+        // In a real application, this would load more data from the server
+        alert('Fitur memuat lebih banyak paralegal akan segera tersedia!');
+        
+        loadMoreBtn.innerHTML = originalText;
+        loadMoreBtn.disabled = false;
+    }, 1500);
+}
+
+function startChatWithParalegal(paralegalName) {
+    // Add button animation
+    const button = event.target.closest('.chat-btn');
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Get paralegal card to access data attributes
+    const paralegalCard = button.closest('.paralegal-card');
+    const whatsappNumber = paralegalCard.getAttribute('data-whatsapp');
+    
+    // Redirect to WhatsApp
+    if (whatsappNumber) {
+        // Format number for WhatsApp URL (remove any non-digit characters except +)
+        const formattedNumber = whatsappNumber.replace(/[^0-9+]/g, '');
+        const whatsappUrl = `https://wa.me/${formattedNumber}`;
+        window.open(whatsappUrl, '_blank');
+    } else {
+        // Fallback if no WhatsApp number is specified
+        alert(`Memulai chat dengan ${paralegalName}.\n\nFitur chat akan segera tersedia!`);
+    }
+    
+    console.log(`Chat started with paralegal: ${paralegalName}`);
+}
+
+function showNoParalegalResultsMessage() {
+    const existingMessage = document.querySelector('.no-paralegal-results-message');
+    if (existingMessage) return;
+    
+    const paralegalGrid = document.getElementById('paralegalGrid');
+    const noResultsDiv = document.createElement('div');
+    noResultsDiv.className = 'no-paralegal-results-message';
+    noResultsDiv.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px; color: #718096;">
+            <i class="fas fa-search" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: #4a5568;">Tidak ada paralegal ditemukan</h3>
+            <p>Coba ubah filter pencarian atau kata kunci Anda</p>
+        </div>
+    `;
+    paralegalGrid.appendChild(noResultsDiv);
+}
+
+function hideNoParalegalResultsMessage() {
+    const existingMessage = document.querySelector('.no-paralegal-results-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+}
+
+// ===== PARALEGAL ANIMATIONS =====
+function initializeParalegalAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe paralegal header
+    const paralegalHeader = document.querySelector('.paralegal-header');
+    if (paralegalHeader) {
+        paralegalHeader.style.opacity = '0';
+        paralegalHeader.style.transform = 'translateY(30px)';
+        paralegalHeader.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(paralegalHeader);
+    }
+    
+    // Observe paralegal filter
+    const paralegalFilter = document.querySelector('.paralegal-filter');
+    if (paralegalFilter) {
+        paralegalFilter.style.opacity = '0';
+        paralegalFilter.style.transform = 'translateY(20px)';
+        paralegalFilter.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        paralegalFilter.style.transitionDelay = '0.2s';
+        observer.observe(paralegalFilter);
+    }
+    
+    // Observe paralegal cards
+    const paralegalCards = document.querySelectorAll('.paralegal-card');
+    paralegalCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        card.style.transitionDelay = `${0.4 + (index * 0.1)}s`;
+        observer.observe(card);
+    });
+    
+    // Observe paralegal footer
+    const paralegalFooter = document.querySelector('.paralegal-footer');
+    if (paralegalFooter) {
+        paralegalFooter.style.opacity = '0';
+        paralegalFooter.style.transform = 'translateY(20px)';
+        paralegalFooter.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        paralegalFooter.style.transitionDelay = '0.6s';
+        observer.observe(paralegalFooter);
     }
 }
 

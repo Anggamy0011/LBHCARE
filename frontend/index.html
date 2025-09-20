@@ -41,6 +41,7 @@
                         <li><a href="#beranda" class="nav-link">Beranda</a></li>
                         <li><a href="#layanan" class="nav-link">Layanan</a></li>
                         <li><a href="#lawyers" class="nav-link">Pengacara</a></li>
+                        <li><a href="#paralegal" class="nav-link">Paralegal</a></li>
                         <li><a href="#knowledge" class="nav-link">Artikel</a></li>
                         <li><a href="#tentang" class="nav-link">Tentang</a></li>
                     </ul>
@@ -48,14 +49,10 @@
                 
                 <!-- Header Actions -->
                 <div class="header-actions">
-                    <button class="btn-emergency">
-                        <i class="fas fa-phone"></i>
-                        <span>Darurat</span>
-                    </button>
-                    <button class="btn-chat">
+                    <a href="https://wa.me/6287780954251" target="_blank" class="btn-chat">
                         <i class="fas fa-comments"></i>
                         <span>Chat Sekarang</span>
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -310,7 +307,7 @@
                         <div class="flip-card-inner">
                             <!-- Front Side - Photo -->
                             <div class="flip-card-front">
-                                <img src="src/assets/images/Keyshan.png" alt="Keyshan Eka Ludista" class="lawyer-photo">
+                                <img src="src/assets/images/keyshan2.jpg" alt="Keyshan Eka Ludista" class="lawyer-photo">
                                 <div class="lawyer-name-overlay">
                                     <h3>Keyshan Eka Ludista S.H., M.H</h3>
                                     <p>Hukum Pidana & Perdata</p>
@@ -488,137 +485,147 @@
         </section>
 
         <!-- Paralegal Section -->
-        <section id="paralegal" class="lawyers paralegal-section">
+        <section id="paralegal" class="paralegal">
             <div class="container">
-                <div class="lawyers-header">
-                    <h2 class="section-title">Tim Paralegal Kami</h2>
-                    <p class="section-description">
-                        Tim paralegal kami siap membantu dalam penelitian hukum, dokumentasi,<br>
-                        dan dukungan administratif untuk kasus Anda
+                <div class="paralegal-header">
+                    <h2 class="paralegal-title">Tim Paralegal Profesional</h2>
+                    <p class="paralegal-description">
+                        Dapatkan bantuan hukum dari paralegal berpengalaman yang siap membantu 
+                        persiapan dokumen dan pendampingan hukum Anda.
                     </p>
                 </div>
 
-                <!-- Paralegal Search -->
-                <div class="lawyers-filter">
+                <!-- Paralegal Filter -->
+                <div class="paralegal-filter">
                     <div class="filter-row">
-                        <div class="filter-group">
-                            <div class="filter-label">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Spesialisasi</span>
-                            </div>
-                            <select id="paralegalSpecialist" class="filter-select">
-                                <option value="">Semua Bidang</option>
-                                <option value="pidana">Pidana</option>
-                                <option value="perdata">Perdata</option>
-                                <option value="keluarga">Keluarga</option>
-                            </select>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Cari nama paralegal..." id="paralegalSearch">
                         </div>
-                        <div class="filter-group">
-                            <div class="filter-label">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Lokasi</span>
-                            </div>
-                            <select id="paralegalLocation" class="filter-select">
-                                <option value="">Semua Lokasi</option>
+                        
+                        <div class="filter-dropdown">
+                            <select id="paralegalSpecialistFilter">
+                                <option value="">Spesialisasi</option>
+                                <option value="dokumen">Persiapan Dokumen</option>
+                                <option value="pendampingan">Pendampingan Hukum</option>
+                                <option value="riset">Riset Hukum</option>
+                                <option value="administrasi">Administrasi Hukum</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <select id="paralegalLocationFilter">
+                                <option value="">Lokasi</option>
                                 <option value="jakarta">Jakarta</option>
+                                <option value="surabaya">Surabaya</option>
                                 <option value="bandung">Bandung</option>
-                                <option value="sukabumi">Sukabumi</option>
+                                <option value="medan">Medan</option>
+                                <option value="semarang">Semarang</option>
+                                <option value="makassar">Makassar</option>
+                                <option value="palembang">Palembang</option>
+                                <option value="tangerang">Tangerang</option>
+                                <option value="depok">Depok</option>
+                                <option value="bekasi">Bekasi</option>
                             </select>
+                            <i class="fas fa-chevron-down"></i>
                         </div>
+                        
+                        <button class="filter-btn" id="applyParalegalFilter">
+                            <i class="fas fa-filter"></i>
+                            Filter
+                        </button>
                     </div>
                 </div>
 
-                <!-- Paralegal Cards Container -->
-                <!-- Paralegal Card 1 - Daffa Arya Saputra (Flip Card) -->
-                <div class="lawyers-grid paralegal-grid">
-                    <div class="lawyer-card flip-card" data-specialist="perdata" data-location="jabodetabek" data-whatsapp="+6281223645192">
+                <!-- Paralegal Grid -->
+                <div class="paralegal-grid" id="paralegalGrid">
+                    <!-- Paralegal Card 1 - Flip Card -->
+                    <div class="paralegal-card flip-card" data-specialist="dokumen,pendampingan" data-location="sukabumi" data-whatsapp="+6281223645192">
                         <div class="flip-card-inner">
                             <!-- Front Side - Photo -->
                             <div class="flip-card-front">
-                                <img src="src/assets/images/daffa.png" alt="Daffa Arya Saputra" class="lawyer-photo">
-                                <div class="lawyer-name-overlay">
+                                <img src="src/assets/images/daffa.png" alt="Daffa Arya Saputra" class="paralegal-photo">
+                                <div class="paralegal-name-overlay">
                                     <h3>Daffa Arya Saputra</h3>
-                                    <p>Paralegal Hukum Perdata</p>
+                                    <p>Paralegal</p>
                                 </div>
                             </div>
                             
                             <!-- Back Side - Details -->
                             <div class="flip-card-back">
-                                <div class="lawyer-header">
-                                    <div class="lawyer-info">
-                                        <div class="lawyer-name">
+                                <div class="paralegal-header">
+                                    <div class="paralegal-info">
+                                        <div class="paralegal-name">
                                             Daffa Arya Saputra
                                         </div>
-                                        <div class="lawyer-specialty">Paralegal Hukum Perdata</div>
-                                        <div class="lawyer-rating">
+                                        <div class="paralegal-specialty">Paralegal</div>
+                                        <div class="paralegal-rating">
                                             <i class="fas fa-star"></i>
-                                            <span class="rating-score">4.8</span>
-                                            <span class="rating-count">(120 ulasan)</span>
+                                            <span class="rating-score">4.9</span>
+                                            <span class="rating-count">(156 ulasan)</span>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="lawyer-details">
+                                <div class="paralegal-details">
                                     <div class="detail-item">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <span class="location">Jabodetabek</span>
                                     </div>
                                     <div class="detail-item">
                                         <i class="fas fa-briefcase"></i>
-                                        <span>Pengalaman: 1 tahun</span>
+                                        <span>Pengalaman: 1 Tahun</span>
                                     </div>
                                     <div class="detail-item">
-                                        <i class="fas fa-file-alt"></i>
+                                        <i class="fas fa-trophy"></i>
                                         <span>50 kasus berhasil</span>
                                     </div>
                                     <div class="detail-item">
                                         <i class="fas fa-globe"></i>
-                                        <span>Bahasa: Indonesia, Inggris</span>
+                                        <span>Bahasa: Indonesia, English</span>
                                     </div>
                                 </div>
                                 
-                                <div class="lawyer-actions">
+                                <div class="paralegal-actions">
                                     <button class="chat-btn primary">
                                         <i class="fas fa-comments"></i>
                                         Chat
-                                    </button>
-                                    <button class="call-btn">
-                                        <i class="fas fa-phone"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Paralegal Card 2 - Syahril Akbar Gunawan (Flip Card) -->
-                    <div class="lawyer-card flip-card" data-specialist="keluarga" data-location="sukabumi" data-whatsapp="+6285793740207">
+                    <!-- Paralegal Card 2 - Flip Card -->
+                    <div class="paralegal-card flip-card" data-specialist="riset,administrasi" data-location="sukabumi" data-whatsapp="+6285793740207">
                         <div class="flip-card-inner">
                             <!-- Front Side - Photo -->
                             <div class="flip-card-front">
-                                <img src="src/assets/images/syahril.png" alt="Syahril Akbar Gunawan" class="lawyer-photo">
-                                <div class="lawyer-name-overlay">
+                                <img src="src/assets/images/Syahril.png" alt="Syahril Akbar Gunawan" class="paralegal-photo">
+                                <div class="paralegal-name-overlay">
                                     <h3>Syahril Akbar Gunawan</h3>
-                                    <p>Paralegal Hukum Keluarga</p>
+                                    <p>Paralegal</p>
                                 </div>
                             </div>
                             
                             <!-- Back Side - Details -->
                             <div class="flip-card-back">
-                                <div class="lawyer-header">
-                                    <div class="lawyer-info">
-                                        <div class="lawyer-name">
+                                <div class="paralegal-header">
+                                    <div class="paralegal-info">
+                                        <div class="paralegal-name">
                                             Syahril Akbar Gunawan
                                         </div>
-                                        <div class="lawyer-specialty">Paralegal Hukum Keluarga</div>
-                                        <div class="lawyer-rating">
+                                        <div class="paralegal-specialty">Paralegal</div>
+                                        <div class="paralegal-rating">
                                             <i class="fas fa-star"></i>
-                                            <span class="rating-score">4.9</span>
-                                            <span class="rating-count">(95 ulasan)</span>
+                                            <span class="rating-score">4.7</span>
+                                            <span class="rating-count">(67 ulasan)</span>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="lawyer-details">
+                                <div class="paralegal-details">
                                     <div class="detail-item">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <span class="location">Sukabumi</span>
@@ -628,32 +635,30 @@
                                         <span>Pengalaman: 2 tahun</span>
                                     </div>
                                     <div class="detail-item">
-                                        <i class="fas fa-file-alt"></i>
+                                        <i class="fas fa-trophy"></i>
                                         <span>36 kasus berhasil</span>
                                     </div>
                                     <div class="detail-item">
                                         <i class="fas fa-globe"></i>
-                                        <span>Bahasa: Indonesia, Inggris</span>
+                                        <span>Bahasa: Indonesia, English</span>
                                     </div>
                                 </div>
                                 
-                                <div class="lawyer-actions">
+                                <div class="paralegal-actions">
                                     <button class="chat-btn primary">
                                         <i class="fas fa-comments"></i>
                                         Chat
-                                    </button>
-                                    <button class="call-btn">
-                                        <i class="fas fa-phone"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Load More Button -->
-                <div class="lawyers-footer">
-                    <button class="load-more-btn" id="loadMoreParalegals">
+                <div class="paralegal-footer">
+                    <button class="load-more-btn" id="loadMoreParalegal">
                         <i class="fas fa-plus"></i>
                         Lihat Lebih Banyak Paralegal
                     </button>
@@ -682,7 +687,7 @@
                         </div>
                         
                         <div class="profile-info">
-                            <h3 class="profile-name">Dr. Keysan, S.H., M.H.</h3>
+                            <h3 class="profile-name">Keyshan Eka Ludista S.H., M.H.</h3>
                             <p class="profile-specialty">Hukum Pidana & Perdata</p>
                             
                             <div class="profile-rating">
@@ -712,14 +717,10 @@
                         </div>
                         
                         <div class="profile-actions">
-                            <button class="action-btn call-btn">
-                                <i class="fas fa-phone"></i>
-                                Call
-                            </button>
-                            <button class="action-btn video-btn">
-                                <i class="fas fa-video"></i>
-                                Video
-                            </button>
+                            <a href="https://wa.me/6281223645192" class="chat-btn primary" target="_blank">
+                                <i class="fas fa-comments"></i>
+                                Chat
+                            </a>
                         </div>
                     </div>
 
@@ -748,7 +749,7 @@
                                 </div>
                                 <div class="message-content">
                                     <div class="message-text">
-                                        Selamat siang! Saya Dr. Keysan. Saya akan membantu konsultasi hukum Anda hari ini. Bisa ceritakan masalah hukum apa yang sedang Anda hadapi?
+                                        Selamat siang! Saya Keyshan Eka Ludista. Saya akan membantu konsultasi hukum Anda hari ini. Bisa ceritakan masalah hukum apa yang sedang Anda hadapi?
                                     </div>
                                     <div class="message-time">14:30</div>
                                 </div>
@@ -1116,6 +1117,7 @@
                     <ul class="footer-links">
                         <li><a href="#services">Konsultasi Gratis</a></li>
                         <li><a href="#lawyers">Direktori Pengacara</a></li>
+                        <li><a href="#paralegal">Tim Paralegal</a></li>
                         <li><a href="#knowledge">Artikel Hukum</a></li>
                         <li><a href="#knowledge">Dokumen Legal</a></li>
                         <li><a href="#consultation">Mediasi Online</a></li>
@@ -1139,7 +1141,7 @@
                     <h3 class="footer-title">Hubungi Kami</h3>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+6287780954251</span>
+                        <span>0877-8095-4251</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>

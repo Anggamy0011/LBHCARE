@@ -1,0 +1,355 @@
+/* Paralegal Section Styles */
+.paralegal {
+    padding: 80px 0;
+    background-color: #f8fafc;
+}
+
+.paralegal-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.paralegal-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.paralegal-description {
+    font-size: 18px;
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Paralegal Filter */
+.paralegal-filter {
+    margin-bottom: 40px;
+}
+
+/* Paralegal Grid - 2 cards centered with fixed width */
+.paralegal-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Paralegal Card - Fixed width for 2 cards */
+.paralegal-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 350px;
+    height: 467px;
+    flex-shrink: 0;
+    position: relative;
+    border: 3px solid #667eea;
+}
+
+.paralegal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Flip Card Styles for Paralegal */
+.paralegal-card.flip-card {
+    background-color: transparent;
+    width: 350px;
+    height: 467px;
+    perspective: 1000px;
+}
+
+.paralegal-card .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+.paralegal-card.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.paralegal-card .flip-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    background-color: #fff;
+    overflow: hidden;
+    border: 1px solid #f7fafc;
+    z-index: 1;
+}
+
+.paralegal-card .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    background: white;
+    color: #1a202c;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border: 1px solid #f7fafc;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Paralegal Photo */
+.paralegal-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Paralegal Name Overlay */
+.paralegal-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    text-align: left;
+    z-index: 2;
+}
+
+.paralegal-name-overlay h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.paralegal-name-overlay p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Paralegal Back Side Styles - Same as Lawyer Cards */
+.paralegal-card .flip-card-back .paralegal-header {
+    margin-bottom: 20px;
+}
+
+.paralegal-card .flip-card-back .paralegal-info {
+    text-align: left;
+}
+
+.paralegal-card .flip-card-back .paralegal-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 8px;
+}
+
+.paralegal-card .flip-card-back .paralegal-specialty {
+    color: #4a5568;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.paralegal-card .flip-card-back .paralegal-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.paralegal-card .flip-card-back .paralegal-rating i {
+    color: #f6ad55;
+    font-size: 16px;
+}
+
+.paralegal-card .flip-card-back .paralegal-rating .rating-score {
+    font-weight: 700;
+    color: #1a365d;
+    font-size: 1.1rem;
+}
+
+.paralegal-card .flip-card-back .paralegal-rating .rating-count {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.paralegal-card .flip-card-back .paralegal-details {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.paralegal-card .flip-card-back .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.paralegal-card .flip-card-back .detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.paralegal-card .flip-card-back .detail-item i {
+    color: #718096;
+    width: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.paralegal-card .flip-card-back .paralegal-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: auto;
+}
+
+.paralegal-card .flip-card-back .chat-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #3182ce, #63b3ed);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.paralegal-card .flip-card-back .chat-btn:hover {
+    background: linear-gradient(135deg, #2c5aa0, #4299e1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(49, 130, 206, 0.3);
+}
+
+/* Paralegal Footer */
+.paralegal-footer {
+    text-align: center;
+}
+
+.paralegal-footer .load-more-btn {
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: #374151; /* Gray-700 */
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.paralegal-footer .load-more-btn:hover {
+    background-color: #f3f4f6; /* Gray-100 */
+    color: #1f2937; /* Gray-800 */
+}
+
+.paralegal-footer .load-more-btn:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .paralegal {
+        padding: 60px 0;
+    }
+    
+    .paralegal-title {
+        font-size: 28px;
+    }
+    
+    .paralegal-description {
+        font-size: 16px;
+    }
+    
+    .paralegal-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .paralegal-card {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .paralegal-card.flip-card {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .paralegal-name-overlay h3 {
+        font-size: 20px;
+    }
+    
+    .paralegal-name-overlay p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .paralegal {
+        padding: 40px 0;
+    }
+    
+    .paralegal-title {
+        font-size: 24px;
+    }
+    
+    .paralegal-description {
+        font-size: 14px;
+    }
+    
+    .paralegal-card {
+        width: 280px;
+        height: 373px;
+    }
+    
+    .paralegal-card.flip-card {
+        width: 280px;
+        height: 373px;
+    }
+    
+    .paralegal-name-overlay h3 {
+        font-size: 18px;
+    }
+    
+    .paralegal-name-overlay p {
+        font-size: 12px;
+    }
+    
+    .paralegal-actions .chat-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
